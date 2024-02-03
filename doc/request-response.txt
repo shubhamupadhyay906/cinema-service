@@ -1,0 +1,266 @@
+GET     : http://localhost:8091/api/v1/user
+GET     : http://localhost:8091/api/v1/user/1
+PUT     : http://localhost:8091/api/v1/user/5
+DELETE  : http://localhost:8091/api/v1/user/5
+GET     : http://localhost:8091/api/v1/user?lname=nap
+GET     : http://localhost:8091/api/v1/user?fname=nap
+GET     : http://localhost:8091/api/v1/user?fname=nap&lname=nap
+
+
+GET     : http://localhost:8091/api/v1/cinemas
+GET     : http://localhost:8091/api/v1/cinema/1
+POST    : http://localhost:8091/api/v1/cinema
+POST    : http://localhost:8091/api/v1/cinemas
+PUT     : http://localhost:8091/api/v1/cinema/1
+DELETE  : http://localhost:8091/api/v1/cinema/1
+GET     : http://localhost:8091/api/v1/cinemas?bookingDate=2020-12-20 03:12:25
+GET     : http://localhost:8091/api/v1/cinemas?branchName=xyz
+GET     : http://localhost:8091/api/v1/cinemas?branchName=xyz&bookingDate=2020-12-20 03:12:25
+GET     : http://localhost:8091/api/v1/cinemas/xyz
+
+POST    : http://localhost:8091/api/v1/cinema/pvr
+POST    : http://localhost:8091/api/v1/cinema/innox
+
+-----------------------------------------------------------------------------------------------
+POST    : http://localhost:8091/api/v1/user
+-----------------------------------------------------------------------------------------------
+{
+    "user":{
+    "userName": "Naresh",
+    "pwd": "abc1",
+    "firstName": "nap2",
+    "lastName": "nap2",
+    "cinemaIFs": [{
+    "branchName":"EVA Mall vadodara",
+    "price":"120.0",
+    "parkingCharge":"30",
+    "bookedSeat":1,
+    "bookingDate":"2022-12-25T22:21:59.658",
+    "screens":[
+                    {
+                        "type": "MY",
+                        "movie": {
+                            "title": "AR1",
+                            "releaseDate": "2022-12-12T22:21:59.658",
+                            "showCycle": true
+                        }
+                    }
+                ]
+}]
+}
+}
+------------------------------------------------------------------------------------------------------
+{
+    "id": 1,
+    "userName": "Naresh",
+    "pwd": "abc1",
+    "firstName": "nap2",
+    "lastName": "nap2",
+    "cinemaIFs": [
+        {
+            "id": 1,
+            "bookingDate": "2022-12-25T22:21:59.658+00:00",
+            "branchName": "EVA Mall vadodara",
+            "cinemaName": null,
+            "price": 120.0,
+            "bookedSeat": 1,
+            "screens": [
+                {
+                    "id": 1,
+                    "type": "MY",
+                    "movie": {
+                        "id": 1,
+                        "title": "AR1",
+                        "showCycle": true,
+                        "releaseDate": "2022-12-12T22:21:59.658+00:00"
+                    }
+                }
+            ]
+        }
+    ]
+}
+-----------------------------------------------------------------------------------------------
+POST    : http://localhost:8091/api/v1/cinema
+-----------------------------------------------------------------------------------------------
+{
+    "cinemaIF":{
+    "branchName":"EVA Mall vadodara",
+    "price":"120.0",
+    "bookedSeat":1,
+    "bookingDate":"2022-12-25T22:21:59.658",
+    "screens":[
+                    {
+                        "type": "MY",
+                        "movie": {
+                            "title": "AR1",
+                            "releaseDate": "2022-12-15T22:21:59.658",
+                            "showCycle": true
+                        }
+                    }
+                ]
+    }
+}
+------------------------------------------------------------------------------------------------------
+{
+    "id": 2,
+    "bookingDate": "2022-12-25T22:21:59.658+00:00",
+    "branchName": "EVA Mall vadodara",
+    "cinemaName": null,
+    "price": 120.0,
+    "bookedSeat": 1,
+    "screens": [
+        {
+            "id": 2,
+            "type": "MY",
+            "movie": {
+                "id": 2,
+                "title": "AR1",
+                "showCycle": true,
+                "releaseDate": "2022-12-15T22:21:59.658+00:00"
+            }
+        }
+    ]
+}
+-----------------------------------------------------------------------------------------------
+POST    : http://localhost:8091/api/v1/cinema/pvr
+-----------------------------------------------------------------------------------------------
+{
+    "pvr":{
+    "branchName":"EVA Mall vadodara",
+    "price":"120.0",
+    "parkingCharge":"30",
+    "bookedSeat":1,
+    "bookingDate":"2022-12-25T22:21:59.658",
+        "userId":{
+            "id": 1,
+        "userName": "Naresh",
+        "pwd": "abc1",
+        "firstName": "nap2",
+        "lastName": "nap2"
+    },
+    "screens":[
+                    {
+                        "type": "MY",
+                        "movie": {
+                            "title": "AR1",
+                            "releaseDate": "2022-12-15T22:21:59.658",
+                            "showCycle": true
+                        }
+                    }
+                ]
+    }
+}
+------------------------------------------------------------------------------------------------------
+{
+    "id": 1,
+    "bookingDate": "2022-12-25T22:21:59.658+00:00",
+    "branchName": "EVA Mall vadodara",
+    "cinemaName": null,
+    "price": 120.0,
+    "bookedSeat": 1,
+    "screens": [
+        {
+            "id": 1,
+            "type": "MY",
+            "movie": {
+                "id": 1,
+                "title": "AR1",
+                "showCycle": true,
+                "releaseDate": "2022-12-15T22:21:59.658+00:00"
+            }
+        }
+    ],
+    "parkingCharge": 30
+}
+-----------------------------------------------------------------------------------------------
+POST    : http://localhost:8091/api/v1/cinema/innox
+-----------------------------------------------------------------------------------------------
+{
+    "innox":{
+    "branchName":"EVA Mall vadodara",
+    "price":"120.0",
+    "foodCharge":"200",
+    "bookedSeat":1,
+    "bookingDate":"2022-12-25T22:21:59.658",
+    "userId":{
+            "id": 1,
+        "userName": "Naresh",
+        "pwd": "abc1",
+        "firstName": "nap2",
+        "lastName": "nap2"
+    },
+    "screens":[
+                    {
+                        "type": "MY",
+                        "movie": {
+                            "title": "AR1",
+                            "releaseDate": "2022-12-15T22:21:59.658",
+                            "showCycle": true
+                        }
+                    }
+                ]
+    }
+}
+------------------------------------------------------------------------------------------------------
+{
+    "id": 3,
+    "bookingDate": "2022-12-25T22:21:59.658+00:00",
+    "branchName": "EVA Mall vadodara",
+    "cinemaName": null,
+    "price": 120.0,
+    "bookedSeat": 1,
+    "screens": [
+        {
+            "id": 3,
+            "type": "MY",
+            "movie": {
+                "id": 3,
+                "title": "AR1",
+                "showCycle": true,
+                "releaseDate": "2022-12-15T22:21:59.658+00:00"
+            }
+        }
+    ],
+    "foodCharge": 200
+}
+-----------------------------------------------------------------------------------------------
+POST    : http://localhost:8091/api/v1/screen
+-----------------------------------------------------------------------------------------------
+{
+      "screen":{
+      "type":"big",
+      "movie":{
+        "title": "AR1",
+        "releaseDate": "2022-12-15T22:21:59.658",
+        "showCycle": true
+     }
+    }
+}
+------------------------------------------------------------------------------------------------------
+{
+    "id": 4,
+    "type": "big",
+    "movie": {
+        "id": 4,
+        "title": "AR1",
+        "showCycle": true,
+        "releaseDate": "2022-12-15T22:21:59.658+00:00"
+    }
+}
+-----------------------------------------------------------------------------------------------
+POST    : http://localhost:8091/api/v1/movie
+-----------------------------------------------------------------------------------------------
+    {
+       "movie": {
+        "title": "Pushpa",
+        "releaseDate": "2022-12-15T22:21:59.658",
+        "showCycle": true
+        }
+    }
+------------------------------------------------------------------------------------------------------
+{
+    "id": 6,
+    "title": "Pushpa",
+    "showCycle": true,
+    "releaseDate": "2022-12-15T22:21:59.658+00:00"
+}
